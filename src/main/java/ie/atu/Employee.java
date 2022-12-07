@@ -20,26 +20,68 @@ public class Employee {
     }
 
     public String geteName() {
-        return eName;
+
+        int size = eName.length();
+
+        if(size <5){
+            throw  new IllegalArgumentException("This name is too short");
+        }
+        else{
+            return eName;
+        }
     }
 
     public String getPPS() {
-        return PPS;
+
+        int size = PPS.length();
+
+        if(size < 6 || size > 6){
+            throw new IllegalArgumentException("Invalid PPS number");
+        }
+        else{
+            return PPS;
+        }
     }
 
     public String getGender() {
-        return gender;
+
+        if(gender != "man" || gender != "woman" || gender != "non-Binary"){
+            throw new IllegalArgumentException("Gender specified is invalid, try 'Man', 'Woman' or 'non-binary'");
+        }
+        else{
+            return gender;
+        }
     }
 
     public String getPhone() {
-        return phone;
+        int size = phone.length();
+
+        if(size != 11){
+            throw new IllegalArgumentException("Phone number provided is invalid, number MUST be 11 characters long");
+        }
+        else{
+            return phone;
+        }
     }
 
     public String getEmpType() {
-        return empType;
+
+        if(empType != "full-time" || empType != "part-time"){
+            throw new IllegalArgumentException("Employee designation provided is invalid, try 'part-time' or 'full-time'");
+        }
+        else{
+            return empType;
+        }
     }
 
     public int getAge() {
-        return age;
+
+        if(age < 18){
+            throw new IllegalArgumentException("This person is too young to work here, must be over 18");
+        }
+        else{
+            return age;
+        }
+
     }
 }
